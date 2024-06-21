@@ -1,0 +1,44 @@
+.input-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 1rem;
+  padding: 20px;
+  border-radius: 0.5rem;
+  background-color: #241442;
+}
+
+.option-input {
+  display: none;
+}
+
+.option-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 75px;
+  height: 40px;
+  border-radius: 2rem;
+  background-color: grey;
+  transition: background-color 0.3s;
+}
+
+.option-label::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.3s;
+}
+
+.option-input:checked + .option-label {
+  background-color: #7400e4;
+}
+
+.option-input:checked + .option-label::after {
+  transform: translateX(100%);
+}
