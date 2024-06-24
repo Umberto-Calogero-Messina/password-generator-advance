@@ -5,10 +5,17 @@ const buttonElement = document.getElementById('generate__password');
 const rangeElement = document.getElementById('range');
 const passwordElement = document.getElementById('password');
 
-const lowercase = 'abcdefghijklmnñopqrstuvwxyz';
-const uppercase = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
-const numbers = '1234567890';
-const symbols = '+-.,!"·$%&/()=?{}';
+// const lowercase = 'abcdefghijklmnñopqrstuvwxyz';
+// const uppercase = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+// const numbers = '1234567890';
+// const symbols = '+-.,!"·$%&/()=?{}';
+
+const passwordSettings = {
+  lowercase: 'abcdefghijklmnñopqrstuvwxyz',
+  uppercase: 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ',
+  numbers: '1234567890',
+  symbols: '+-.,!"·$%&/()=?{}'
+};
 
 let passwordLength = 16;
 
