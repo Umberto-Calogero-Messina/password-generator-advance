@@ -19,8 +19,10 @@ const passwordSettings = {
 let passwordLength = 16;
 
 const setLengthPassword = ev => {
-  passwordLength = ev.target.value;
-  textLengthElement.textContent = passwordLength;
+  if (ev) {
+    passwordLength = ev.target.value;
+    textLengthElement.textContent = passwordLength;
+  }
 
   if (passwordLength <= 5) {
     strengthElement.textContent = `TOO SHORT`;
@@ -32,6 +34,8 @@ const setLengthPassword = ev => {
     strengthElement.textContent = `STRENGTH`;
   }
 };
+
+setLengthPassword();
 
 const setInputValue = event => {
   if (event.target.type !== 'checkbox') {
@@ -46,7 +50,6 @@ const calcPasswordOptions = () => {
   setCheckbox.forEach(checkbox => {
     allowedChar += passwordSettings[checkbox.id];
   });
-  console.log(allowedChar);
 };
 
 const generateRandomNumber = () => {
