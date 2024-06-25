@@ -8,6 +8,7 @@ const optionsElement = document.getElementById('options');
 const strengthElement = document.getElementById('strength__password');
 
 let allowedChar = '';
+let passwordLength = rangeElement.value;
 
 const passwordSettings = {
   lowercase: 'abcdefghijklmnñopqrstuvwxyz',
@@ -15,8 +16,6 @@ const passwordSettings = {
   numbers: '1234567890',
   symbols: '+-.,!"·$%&/()=?{}'
 };
-
-let passwordLength = 16;
 
 const setLengthPassword = ev => {
   if (ev) {
@@ -37,19 +36,21 @@ const setLengthPassword = ev => {
 
 setLengthPassword();
 
-const setInputValue = event => {
-  if (event.target.type !== 'checkbox') {
-    return;
-  }
-  calcPasswordOptions();
+const setDisableButton = () => {
+  buttonElement.disabled = !allowedChar.length;
 };
 
 const calcPasswordOptions = () => {
   allowedChar = '';
   const setCheckbox = document.querySelectorAll('input:checked');
-  setCheckbox.forEach(checkbox => {
-    allowedChar += passwordSettings[checkbox.id];
-  });
+
+  if (setCheckbox.length === 0) return;
+  if (setCheckbox)
+    setCheckbox.forEach(cb => {
+      allowedChar += passwordSettings[cb.id];
+    });
+
+  setDisableButton();
 };
 
 const generateRandomNumber = () => {
@@ -71,5 +72,5 @@ const printPasswordValue = () => {
 };
 
 rangeElement.addEventListener('input', setLengthPassword);
-optionsElement.addEventListener('click', setInputValue);
+optionsElement.addEventListener('click', calcPasswordOptions);
 buttonElement.addEventListener('click', printPasswordValue);
