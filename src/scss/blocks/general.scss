@@ -30,3 +30,7 @@
   transform: scale(0.95);
   background-color: var(--cta-color-hover);
 }
+
+.button:disabled {
+  background-color: grey;
+}

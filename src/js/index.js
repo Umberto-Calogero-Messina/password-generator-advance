@@ -36,21 +36,21 @@ const setLengthPassword = ev => {
 
 setLengthPassword();
 
-const setDisableButton = () => {
-  buttonElement.disabled = !allowedChar.length;
-};
-
 const calcPasswordOptions = () => {
   allowedChar = '';
   const setCheckbox = document.querySelectorAll('input:checked');
 
-  if (setCheckbox.length === 0) return;
+  if (setCheckbox.length != 0) {
+    buttonElement.disabled = allowedChar.length;
+    return;
+  } else {
+    buttonElement.disabled = !allowedChar.length;
+  }
+
   if (setCheckbox)
     setCheckbox.forEach(cb => {
       allowedChar += passwordSettings[cb.id];
     });
-
-  setDisableButton();
 };
 
 const generateRandomNumber = () => {
