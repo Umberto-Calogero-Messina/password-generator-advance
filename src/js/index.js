@@ -42,9 +42,9 @@ const calcPasswordOptions = () => {
 
   if (setCheckbox.length != 0) {
     buttonElement.disabled = allowedChar.length;
-    return;
   } else {
     buttonElement.disabled = !allowedChar.length;
+    return;
   }
 
   if (setCheckbox)
